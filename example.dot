@@ -1,0 +1,44 @@
+digraph {
+    graph [bgcolor=transparent];
+    node [shape=box,color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+    edge [color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+    subgraph {
+        node [style=dashed];
+        foaf_Agent [label="foaf:Agent"];
+        foaf_Person [label="foaf:Person"];
+        org_Organization [label="org:Organization", style=dashed];
+        org_OrganizationalUnit [label="org:OrganizationalUnit", style=dashed];
+        org_Role [label="org:Role", style=dashed];
+        org_Membership [label="org:Membership", style=dashed];
+        skos_Concept [label="skos:Concept", style=dashed];
+        skos_ConceptScheme [label="skos:ConceptScheme", style=dashed];
+    }
+    soco_Committee [label="soco:Committee"];
+    soco_Board [label="soco:Board"];
+    
+    subgraph {
+        edge [fontsize=10,concentrate=true];
+        
+        subgraph {
+            edge [label="rdfs:subClassOf", style=dashed];
+            soco_Board -> soco_Committee -> org_OrganizationalUnit;
+            org_OrganizationalUnit -> org_Organization -> foaf_Agent;
+            foaf_Person -> foaf_Agent;
+            org_Role -> skos_Concept;
+        }
+        subgraph {
+            edge [style=dashed];
+            org_Membership -> org_Organization [label="org:organization"];
+            org_Membership -> foaf_Agent [label="org:member"];
+            org_Membership -> org_Role [label="org:role"];
+            skos_Concept -> skos_ConceptScheme [label="skos:inScheme"];
+        }
+        org_Membership -> foaf_Person [label="soco:primary-contact"];
+        org_Membership -> foaf_Person [label="soco:billing-contact"];
+        foaf_Person -> soco_Committee [label="soco:chair-of"];
+        foaf_Person -> org_Organization [label="soco:president-of"];
+        foaf_Person -> org_Organization [label="soco:secretary-of"];
+        foaf_Person -> org_Organization [label="soco:treasurer-of"];
+        foaf_Person -> org_Organization [label="soco:executive-director-of"];
+    }
+}

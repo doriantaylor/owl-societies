@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/transform"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+      xmlns:owl="http://www.w3.org/2002/07/owl#"
+      xmlns:dct="http://purl.org/dc/terms/"
+      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+      xmlns:bibo="http://purl.org/ontology/bibo/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:vann="http://purl.org/vocab/vann/"
+      xmlns:org="http://www.w3.org/ns/org#"
+      xmlns:soco="http://privatealpha.com/ontology/societies/1#"
+      xml:lang="en">
+  <head>
+    <title about="#" property="dct:title">Societies Ontology</title>
+    <base href="http://privatealpha.com/ontology/societies/1"/>
+    <meta about="#" property="vann:preferredNamespacePrefix" content="soco"/>
+    <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
+  </head>
+  <body>
+    <h2>Societies Ontology</h2>
+    <div about="#" typeof="owl:Ontology bibo:Webpage">
+      <dl>
+        <dt>Author</dt>
+        <dd><a rel="external dct:creator" href="http://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
+        <dt>Version</dt>
+        <dd about="#" property="owl:versionInfo">0.1</dd>
+        <dt>Created</dt>
+        <dd property="dct:created" datatype="xsd:dateTime" content="2014-07-30T05:37:43Z">July 29, 2014</dd>
+        <!--<dt>Updated</dt>
+        <dd property="2012-12-12T16:04:50-0800">December 12, 2012</dd>-->
+        <dt>Namespace URI</dt>
+        <dd><a href="#">http://privatealpha.com/ontology/societies/1#</a></dd>
+        <dt>Preferred Namespace Prefix</dt>
+        <dd about="#" property="vann:preferredNamespacePrefix">soco</dd>        
+      </dl>
+      <p property="rdfs:comment dct:description">The Organization Ontology provides a core set of classes and properties useful for describing the basic structures of corporate entities. The authors deliberately left out explicit provisions for the myriad idiosyncrasies we find in organizations all around the world. The Societies Ontology is an attempt to fill some of that in.</p>
+      <p>A <em>society</em>, charity, association, foundation, or other non-profit entity tends to be structured according to a common schema. In North America, at least, a society is controlled by an elected <dfn>board of directors</dfn>. Of these directors, there are the legislated roles of <dfn>president</dfn>, <dfn>secretary</dfn>, and <dfn>treasurer</dfn>, and may appoint an <dfn>executive director</dfn> to run the organization.</p>
+      <p>A board of directors is actually a special kind of <dfn>committee</dfn>, which itself is a special kind of <dfn>organizational unit</dfn>. Societies may also have members, which themselves may be people, or other organizations. It is the goal of this vocabulary to provide the necessary extensions to encode those relationships.</p>
+      <p>I acknowledge a bias toward the anglosphere, common law, and especially North America when considering this vocabulary. I am content to take suggestions to accommodate structures from other jurisdictions.</p>
+      <!--<blockquote class="note">
+        <p></p>
+      </blockquote>-->
+      <object style="display: block; margin: auto; max-width: 100%; height: auto" data="example.svg"><img src="example" alt=""/></object>
+      <h4>Imports</h4>
+      <ul>
+        <li><a rel="external owl:imports" href="http://www.w3.org/ns/org#"><span property="rdfs:label" xml:lang="en">Core organization ontology</span></a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Classes</h2>
+      <div id="Committee" about="[soco:Committee]" typeof="owl:Class">
+        <h4 property="rdfs:label">Committee</h4>
+        <p property="rdfs:comment">A committee is a specific type of organizational unit.</p>
+        <dl>
+          <dt>Subclass of:</dt>
+          <dd><a rel="external rdfs:subClassOf" href="http://www.w3.org/ns/org#OrganizationalUnit">org:OrganizationalUnit</a></dd>
+          <!--<dt>Properties:</dt>-->
+          <!-- WTF HTML5 -->
+          <!--
+          <dd rev="rdfs:domain"><a href="#implementation">pfo:implementation</a></dd>
+          <dd rev="rdfs:domain"><a href="#parameter">pfo:parameter</a></dd>
+          <dd rev="rdfs:domain"><a href="#parameter-list">pfo:parameter-list</a></dd>
+          <dd rev="rdfs:domain"><a href="#accepts">pfo:accepts</a></dd>
+          <dd rev="rdfs:domain"><a href="#returns">pfo:returns</a></dd>-->
+        </dl>
+      </div>
+      <div id="Board" about="[soco:Board]" typeof="owl:Class">
+        <h4 property="rdfs:label">Board</h4>
+        <p property="rdfs:comment">The board of directors is a specific committee within the organization.</p>
+        <dl>
+          <dt>Subclass of:</dt>
+          <dd><a rel="rdfs:subClassOf" href="#Committee">soco:Committee</a></dd>
+          <dt>Properties:</dt>
+          <dd rev="rdfs:domain"><a href="#board-of">soco:board-of</a></dd>
+        </dl>
+      </div>
+    </div>
+    <div>
+      <h2>Properties</h2>
+      <h3>Related to the Board of Directors</h3>
+      <div id="board-of" about="[soco:board-of]" typeof="owl:InverseFunctionalProperty owl:ObjectProperty">
+        <h4 property="rdfs:label">board-of</h4>
+        <p property="rdfs:comment">Indicates a direct relation between a board of directors and its parent organization.</p>
+        <!--<blockquote class="note">
+          <p property="skos:usageNote"></p>
+        </blockquote>-->
+        <dl>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="external rdfs:subPropertyOf" href="http://www.w3.org/ns/org#unitOf">org:unitOf</a></dd>
+          <dt>Inverse of:</dt>
+          <dd><a rel="owl:inverseOf" href="#has-board">soco:has-board</a></dd>
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:domain" href="http://www.w3.org/ns/org#Organization">org:Organization</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="external rdfs:range" href="#Board">soco:Board</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="has-board" about="[soco:has-board]" typeof="owl:FunctionalProperty owl:ObjectProperty">
+        <h4 property="rdfs:label">has-board</h4>
+        <p property="rdfs:comment">Indicates a direct relation between an organization and its board of directors.</p>
+        <!--<blockquote class="note">
+          <p property="skos:usageNote"></p>
+        </blockquote>-->
+        <dl>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="external rdfs:subPropertyOf" href="http://www.w3.org/ns/org#unitOf">org:hasUnit</a></dd>
+          <dt>Inverse of:</dt>
+          <dd><a rel="owl:inverseOf" href="#board-of">soco:board-of</a></dd>
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:domain" href="#Board">soco:Board</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="external rdfs:range" href="http://www.w3.org/ns/org#Organization">org:Organization</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <h3>Related to Membership</h3>
+      <div id="primary-contact" about="[soco:primary-contact]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">primary-contact</h4>
+        <p property="rdfs:comment">Designates the person who is the primary contact of a membership.</p>
+        <blockquote class="note">
+          <p property="skos:usageNote">Many membership organizations, e.g. trade or professional associations, have companies as members rather than people. In that case, the member company would designate a person to deal with the details of its membership to the association.</p>
+        </blockquote>
+        <dl>
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:domain" href="http://www.w3.org/ns/org#Membership">org:Membership</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="external rdfs:range" href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="billing-contact" about="[soco:billing-contact]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">billing-contact</h4>
+        <p property="rdfs:comment">Designates the person who is in charge of paying the bills associated with a membership.</p>
+        <blockquote class="note">
+          <p property="skos:usageNote">In membership organizations whose members are companies, there is often a dedicated bookkeeper, comptroller, or CFO.</p>
+        </blockquote>
+        <dl>
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:domain" href="http://www.w3.org/ns/org#Membership">org:Membership</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="external rdfs:range" href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <h3>Related to Officers</h3>
+      <div id="president-of" about="[soco:president-of]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">president-of</h4>
+        <p property="rdfs:comment">Designates the president of the organization.</p>
+        <dl>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="external rdfs:subPropertyOf" href="http://www.w3.org/ns/org#headOf">org:headOf</a></dd>
+          <!--<dt>Inverse of:</dt>
+          <dd><a rel="owl:inverseOf" href="#has-president">soco:has-president</a></dd>-->
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:domain" href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="external rdfs:range" href="http://www.w3.org/ns/org#Organization">org:Organization</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="secretary-of" about="[soco:secretary-of]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">secretary-of</h4>
+        <p property="rdfs:comment">Designates the secretary of the organization.</p>
+        <dl>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="external rdfs:subPropertyOf" href="http://www.w3.org/ns/org#memberOf">org:memberOf</a></dd>
+          <!--<dt>Inverse of:</dt>
+          <dd><a rel="owl:inverseOf" href="#has-secretary">soco:has-secretary</a></dd>-->
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:domain" href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="external rdfs:range" href="http://www.w3.org/ns/org#Organization">org:Organization</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="treasurer-of" about="[soco:treasurer-of]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">treasurer-of</h4>
+        <p property="rdfs:comment">Designates the treasurer of the organization.</p>
+        <dl>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="external rdfs:subPropertyOf" href="http://www.w3.org/ns/org#memberOf">org:memberOf</a></dd>
+          <!--<dt>Inverse of:</dt>
+          <dd><a rel="owl:inverseOf" href="#has-treasurer">soco:has-treasurer</a></dd>-->
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:domain" href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="external rdfs:range" href="http://www.w3.org/ns/org#Organization">org:Organization</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="executive-director-of" about="[soco:executive-director-of]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">executive-director-of</h4>
+        <p property="rdfs:comment">Designates the executive director of the organization.</p>
+        <dl>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="external rdfs:subPropertyOf" href="http://www.w3.org/ns/org#memberOf">org:memberOf</a></dd>
+          <!--<dt>Inverse of:</dt>
+          <dd><a rel="owl:inverseOf" href="#has-executive-director">soco:has-executive-director</a></dd>-->
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:domain" href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="external rdfs:range" href="http://www.w3.org/ns/org#Organization">org:Organization</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="chair-of" about="[soco:chair-of]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">chair-of</h4>
+        <p property="rdfs:comment">Designates the chair of a committee.</p>
+        <dl>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="external rdfs:subPropertyOf" href="http://www.w3.org/ns/org#memberOf">org:memberOf</a></dd>
+          <!--<dt>Inverse of:</dt>
+          <dd><a rel="owl:inverseOf" href="#has-chair">soco:has-chair</a></dd>-->
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:domain" href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="rdfs:range" href="#Committee">soco:Committee</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+    </div>
+    <div>
+      <h2>Individuals</h2>
+      <p>This vocabulary contains a number of predefined roles.</p>
+      <div id="Officers" about="[soco:Officers]" typeof="skos:ConceptScheme">
+        <h4 property="rdfs:label">Officers</h4>
+        <p property="rdfs:comment">This is a concept scheme to contain the standard roles of officers.</p>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="President" about="[soco:President]" typeof="org:Role">
+        <h4 property="rdfs:label">President</h4>
+        <p property="rdfs:comment">The president is the elected chief executive of an organization. The president is the first of three officer roles typically mandated by legislation.</p>
+        <dl>
+          <dt>Role property:</dt>
+          <dd><a rel="org:roleProperty" href="#president-of">soco:president-of</a></dd>
+          <dt>Concept scheme:</dt>
+          <dd><a rel="skos:inScheme" href="#Officers">Officers</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="Secretary" about="[soco:Secretary]" typeof="org:Role">
+        <h4 property="rdfs:label">Secretary</h4>
+        <p property="rdfs:comment">The secretary is the elected officer responsible for maintaining the records of an organization, and is the second of three typically-mandatory officer roles.</p>
+        <dl>
+          <dt>Role property:</dt>
+          <dd><a rel="org:roleProperty" href="#secretary-of">soco:secretary-of</a></dd>
+          <dt>Concept scheme:</dt>
+          <dd><a rel="skos:inScheme" href="#Officers">Officers</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="Treasurer" about="[soco:Treasurer]" typeof="org:Role">
+        <h4 property="rdfs:label">Treasurer</h4>
+        <p property="rdfs:comment">The treasurer is the elected officer responsible for the finances of an organization, and is the third of the three mandatory elected positions.</p>
+        <dl>
+          <dt>Role property:</dt>
+          <dd><a rel="org:roleProperty" href="#treasurer-of">soco:treasurer-of</a></dd>
+          <dt>Concept scheme:</dt>
+          <dd><a rel="skos:inScheme" href="#Officers">Officers</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="ExecutiveDirector" about="[soco:ExecutiveDirector]" typeof="org:Role">
+        <h4 property="rdfs:label">Executive Director</h4>
+        <p property="rdfs:comment">The executive director is the first appointed position in a society-like organization, and is responsible for its day-to-day operation.</p>
+        <dl>
+          <dt>Role property:</dt>
+          <dd><a rel="org:roleProperty" href="#executive-director-of">soco:executive-director-of</a></dd>
+          <dt>Concept scheme:</dt>
+          <dd><a rel="skos:inScheme" href="#Officers">Officers</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="Chair" about="[soco:Chair]" typeof="org:Role">
+        <h4 property="rdfs:label">Chair</h4>
+        <p property="rdfs:comment">The chair, or chairperson, is in charge of maintaining order in a committee.</p>
+        <dl>
+          <dt>Role property:</dt>
+          <dd><a rel="org:roleProperty" href="#chair-of">soco:chair-of</a></dd>
+          <dt>Concept scheme:</dt>
+          <dd><a rel="skos:inScheme" href="#Officers">Officers</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+    </div>
+    <!--
+    <div>
+      <h2>References</h2>
+      <ul>
+      </ul>
+    </div>-->
+  </body>
+</html>
