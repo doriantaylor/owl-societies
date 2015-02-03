@@ -51,6 +51,14 @@
     </div>
     <div>
       <h2>Classes</h2>
+      <div id="Chapter" about="[soco:Chapter]" typeof="owl:Class">
+        <h4 property="rdfs:label">Chapter</h4>
+        <p property="rdfs:comment">A chapter is an organizational unit focused on a geographic region.</p>
+        <dl>
+          <dt>Subclass of:</dt>
+          <dd><a rel="external rdfs:subClassOf" href="http://www.w3.org/ns/org#OrganizationalUnit">org:OrganizationalUnit</a></dd>
+        </dl>
+      </div>
       <div id="Committee" about="[soco:Committee]" typeof="owl:Class">
         <h4 property="rdfs:label">Committee</h4>
         <p property="rdfs:comment">A committee is a specific type of organizational unit.</p>

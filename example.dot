@@ -13,6 +13,7 @@ digraph {
         skos_Concept [label="skos:Concept", style=dashed];
         skos_ConceptScheme [label="skos:ConceptScheme", style=dashed];
     }
+    soco_Chapter [label="soco:Chapter"];
     soco_Committee [label="soco:Committee"];
     soco_Board [label="soco:Board"];
     
@@ -22,6 +23,7 @@ digraph {
         subgraph {
             edge [label="rdfs:subClassOf", style=dashed];
             soco_Board -> soco_Committee -> org_OrganizationalUnit;
+            soco_Chapter -> org_OrganizationalUnit;
             org_OrganizationalUnit -> org_Organization -> foaf_Agent;
             foaf_Person -> foaf_Agent;
             org_Role -> skos_Concept;
