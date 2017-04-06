@@ -11,11 +11,11 @@
       xmlns:foaf="http://xmlns.com/foaf/0.1/"
       xmlns:vann="http://purl.org/vocab/vann/"
       xmlns:org="http://www.w3.org/ns/org#"
-      xmlns:soco="http://privatealpha.com/ontology/societies/1#"
+      xmlns:soco="https://privatealpha.com/ontology/societies/1#"
       xml:lang="en">
   <head>
     <title about="#" property="dct:title">Societies Ontology</title>
-    <base href="http://privatealpha.com/ontology/societies/1"/>
+    <base href="https://privatealpha.com/ontology/societies/1"/>
     <meta about="#" property="vann:preferredNamespacePrefix" content="soco"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
   </head>
@@ -32,7 +32,7 @@
         <!--<dt>Updated</dt>
         <dd property="2012-12-12T16:04:50-0800">December 12, 2012</dd>-->
         <dt>Namespace URI</dt>
-        <dd><a href="#">http://privatealpha.com/ontology/societies/1#</a></dd>
+        <dd><a href="#">https://privatealpha.com/ontology/societies/1#</a></dd>
         <dt>Preferred Namespace Prefix</dt>
         <dd about="#" property="vann:preferredNamespacePrefix">soco</dd>        
       </dl>
