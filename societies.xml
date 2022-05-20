@@ -11,11 +11,11 @@
       xmlns:foaf="http://xmlns.com/foaf/0.1/"
       xmlns:vann="http://purl.org/vocab/vann/"
       xmlns:org="http://www.w3.org/ns/org#"
-      xmlns:soco="https://privatealpha.com/ontology/societies/1#"
+      xmlns:soco="https://vocab.methodandstructure.com/societies#"
       xml:lang="en">
   <head>
     <title about="#" property="dct:title">Societies Ontology</title>
-    <base href="https://privatealpha.com/ontology/societies/1"/>
+    <base href="https://vocab.methodandstructure.com/societies"/>
     <meta about="#" property="vann:preferredNamespacePrefix" content="soco"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
   </head>
@@ -32,9 +32,9 @@
         <!--<dt>Updated</dt>
         <dd property="2012-12-12T16:04:50-0800">December 12, 2012</dd>-->
         <dt>Namespace URI</dt>
-        <dd><a href="#">https://privatealpha.com/ontology/societies/1#</a></dd>
+        <dd><a href="#">https://vocab.methodandstructure.com/societies#</a></dd>
         <dt>Preferred Namespace Prefix</dt>
-        <dd about="#" property="vann:preferredNamespacePrefix">soco</dd>        
+        <dd about="#" property="vann:preferredNamespacePrefix">soco</dd>
       </dl>
       <p property="rdfs:comment dct:description">The Organization Ontology provides a core set of classes and properties useful for describing the basic structures of corporate entities. The authors deliberately left out explicit provisions for the myriad idiosyncrasies we find in organizations all around the world. The Societies Ontology is an attempt to fill some of that in.</p>
       <p>A <em>society</em>, charity, association, foundation, or other non-profit entity tends to be structured according to a common schema. In North America, at least, a society is controlled by an elected <dfn>board of directors</dfn>. Of these directors, there are the legislated roles of <dfn>president</dfn>, <dfn>secretary</dfn>, and <dfn>treasurer</dfn>, and may appoint an <dfn>executive director</dfn> to run the organization.</p>
@@ -43,7 +43,7 @@
       <!--<blockquote class="note">
         <p></p>
       </blockquote>-->
-      <object style="display: block; margin: auto; max-width: 100%; height: auto" data="example.svg"><img src="example" alt=""/></object>
+      <object style="display: block; margin: auto; max-width: 100%; height: auto" data="societies-classes.svg"><img src="societies-classes" alt=""/></object>
       <h4>Imports</h4>
       <ul>
         <li><a rel="external owl:imports" href="http://www.w3.org/ns/org#"><span property="rdfs:label" xml:lang="en">Core organization ontology</span></a></li>
